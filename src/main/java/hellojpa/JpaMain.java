@@ -22,12 +22,19 @@ public class JpaMain {
         try {
             // try 문 내부에는 em.persist(), em.find(), em.remove() 등의 메서드를 호출할 수 있다.
             // 수정은 member.필드세터() 만 호출하면 된다.
-            Member member = new Member();
+            Member member1 = new Member();
+            member1.setName("A");
 
-            member.setId(2L);
-            member.setName("HelloB");
+            Member member2 = new Member();
+            member2.setName("B");
 
-            em.persist(member);
+            Member member3 = new Member();
+            member3.setName("C");
+
+            em.persist(member1);
+            em.persist(member2);
+            em.persist(member3);
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
